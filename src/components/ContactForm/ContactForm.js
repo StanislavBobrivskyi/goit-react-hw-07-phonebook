@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({ onSubmit }) => {
+export const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
@@ -31,5 +31,3 @@ const ContactForm = ({ onSubmit }) => {
     </form>
   );
 };
-
-export default ContactForm;
