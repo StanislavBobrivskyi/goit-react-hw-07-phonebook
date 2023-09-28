@@ -1,8 +1,11 @@
-// store.js
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import rootReducer from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+import { contactsSlice } from './contactsSlice';
+import { filterSlice } from './filterSlice';
 
-export default store;
+export const store = configureStore({
+  reducer: {
+    contacts: contactsSlice.reducer,
+    filter: filterSlice.reducer,
+  },
+});
