@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ContactForm } from './components/ContactForm.js';
-import { ContactList } from './components/ContactList.js';
+import { ContactForm } from '../components/ContactForm/ContactForm';
+import { ContactList } from '../components/ContactList/ContactList';
 import { fetchContacts, addContact, deleteContact } from './API';
 
 export function App() {
