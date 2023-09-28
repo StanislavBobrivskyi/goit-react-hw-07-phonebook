@@ -1,41 +1,41 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { fetchContacts, addContact, deleteContact } from './redux/operations';
+import Form from '../components/ContactForm/ContactForm';
+import Section from '../Section';
+import ContactsList from '../components/ContactList/ContactList';
+import Filter from '../components/ContactFilter/ContactFilter';
+import { useSelector } from 'react-redux';
+import { selectContacts, selectIsLoading } from 'redux/selectors/selectors';
+import { selectVisibleContacts } from 'redux/selectors/selectors';
+import { fetchContacts } from './redux/operations';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Loader } from 'components/Grid';
 
-export function App() {
+export const App = () => {
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const visibleContacts = useSelector(selectVisibleContacts);
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const handleAddContact = async newContact => {
-    try {
-      const createdContact = await addContact(newContact);
-      dispatch({ type: 'contacts/addContact', payload: createdContact });
-    } catch (error) {
-      console.error('Помилка при додаванні контакту:', error);
-    }
-  };
-
-  const handleDeleteContact = async contactId => {
-    try {
-      await deleteContact(contactId);
-      dispatch({ type: 'contacts/deleteContact', payload: contactId });
-    } catch (error) {
-      console.error('Помилка при видаленні контакту:', error);
-    }
-  };
-
   return (
     <div>
-      <h1>Книга контактів</h1>
-      <ContactForm onSubmit={handleAddContact} />
-      <h2>Список контактів</h2>
-      <ContactList contacts={contacts} onDelete={handleDeleteContact} />
+      <Section title="Phonebook">
+        <Form />
+      </Section>
+      <Section>
+        <Filter />
+        {contacts.length > 0 && visibleContacts.length === 0 && (
+          <p>No one found with that name</p>
+        )}
+        {contacts.length === 0 && !isLoading && (
+          <p>Please add contact by click on "Add conctact" button</p>
+        )}
+        {isLoading && <Loader />}
+        {contacts.length > 0 && <ContactsList />}
+      </Section>
     </div>
   );
-}
+};
