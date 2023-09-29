@@ -8,7 +8,7 @@ import { selectVisibleContacts } from 'redux/selectors/selectors';
 import { fetchContacts } from 'redux/operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Loader } from 'components/Grid';
+import { Loader } from 'components/FillingLines';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
