@@ -6,7 +6,7 @@ import {
   ContListText,
   ContListItem,
   ContListBtn,
-} from './ContactList.styled';
+} from './ContactsList.styled';
 import { selectVisibleContacts } from 'redux/selectors/selectors';
 import { deleteContact } from 'redux/operations';
 const ContactsList = () => {

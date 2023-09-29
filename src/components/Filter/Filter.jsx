@@ -4,7 +4,7 @@ import {
   ContFilter,
   FilterInput,
   FilterPlaceholder,
-} from './ContactFilter.styled';
+} from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
 

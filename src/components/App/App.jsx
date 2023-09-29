@@ -1,11 +1,11 @@
-import Form from '../components/ContactForm/ContactForm';
+import Form from '../Form';
 import Section from '../Section';
-import ContactsList from '../components/ContactList/ContactList';
-import Filter from '../components/ContactFilter/ContactFilter';
+import ContactsList from '../ContactsList';
+import Filter from '../Filter';
 import { useSelector } from 'react-redux';
 import { selectContacts, selectIsLoading } from 'redux/selectors/selectors';
 import { selectVisibleContacts } from 'redux/selectors/selectors';
-import { fetchContacts } from './redux/operations';
+import { fetchContacts } from 'redux/operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Loader } from 'components/Grid';
