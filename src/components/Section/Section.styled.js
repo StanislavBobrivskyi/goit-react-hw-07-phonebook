@@ -4,18 +4,14 @@ export const MainSection = styled.section`
   padding-top: 40px;
 `;
 
-export const Container = styled.div` margin: 0 auto;
-    padding-right: 20px;
-     padding-left: 20px;
+export const Container = styled.div`
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
 
-     @media screen and (min-width: 375px) {
-        width: 375px;
-      }
-
-      @media screen and (min-width: 1440px) {
-        width: 1440px;
-      }
-   }
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
 `;
 
 export const SectionTitle = styled.h1`
