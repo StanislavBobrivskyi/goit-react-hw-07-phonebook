@@ -12,12 +12,12 @@ export const FilterTitile = styled.h2`
   margin-bottom: 25px;
 `;
 
-export const ContFilter = styled.div`
+export const ContactFilter = styled.div`
   position: relative;
   margin-bottom: 15px;
 `;
 
-export const FilterPlaceholder = styled.label`
+export const Lable = styled.label`
   position: absolute;
   top: 5px;
   left: 5px;
@@ -33,8 +33,14 @@ export const FilterPlaceholder = styled.label`
 `;
 
 export const FilterInput = styled.input`
-  height: 30px;
-  border-radius: 10px;
+  width: 250px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid green;
+  padding: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 6px 0px rgba(33, 83, 60, 0.5);
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     & {
@@ -42,10 +48,8 @@ export const FilterInput = styled.input`
     }
   }
 
-  &:focus
-    + ${FilterPlaceholder},
-    &:not(:placeholder-shown)
-    + ${FilterPlaceholder} {
+  &:focus + ${Lable}, &:not(:placeholder-shown) + ${Lable} {
+    background-color: #fff;
     transform: translateY(-80%);
     font-size: 16px;
     color: green;

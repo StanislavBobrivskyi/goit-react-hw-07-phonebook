@@ -1,97 +1,77 @@
 import { Form, Field, ErrorMessage } from 'formik';
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components';
 
-const blinkingAnimation = keyframes`
-  0% { color: #19a911; }
-  50% { color: white; }
-  100% { color: #19a911; }
-`;
-
-
+// const blinkingAnimation = keyframes`
+//   0% { color: #19a911; }
+//   50% { color: white; }
+//   100% { color: #19a911; }
+// `;
 
 export const StyledForm = styled(Form)`
-display: flex;
+  display: flex;
   flex-direction: column;
-  gap: 30px;
   align-items: center;
+  gap: 15px;
+  padding: 10px;
 `;
 
 export const StyledField = styled(Field)`
-padding: 10px;
-border: 1px solid #00ff00;
-border-radius: 5px;
-transition: border-color 0.3s ease;
-width: 400px;
+  width: 250px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid green;
+  padding: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 6px 0px rgba(33, 83, 60, 0.5);
 
-
-@media screen and (max-width: 768px) {
-     
-      width: 250px;
-    
+  @media screen and (max-width: 768px) {
+    width: 250px;
   }
 
   &:focus {
-    border-color: #00ff00; 
+    border-color: #00ff00;
   }
-
 `;
 
 export const Label = styled.label`
-position: absolute;
-top: 10px;
-left: 10px;
-transition: transform 0.3s, font-size 0.3s, color 0.3s;
-pointer-events: none;
-color: #666;
-
-
-
-
-${StyledField}:focus + &, 
-${StyledField}:not(:placeholder-shown) + & {
-  transform: translateY(-180%);
-  font-size: 16px;
-  color: #19a911;
-}
-
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 20px;
 `;
 
-export const ErrorMsg = styled(ErrorMessage)`
-  font-size: 14px;
-  animation: ${blinkingAnimation} 1s linear infinite;
-  margin-top: 10px;
-
-  pointer-events: none;
+export const StyledError = styled(ErrorMessage)`
+  font-size: 12px;
+  text-align: center;
+  max-width: 250px;
+  color: red;
+  box-shadow: 0 0 10px #ff0000;
+  border-radius: 25px;
+  padding: 2px 4px;
 `;
 
 export const InputContainer = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 
-
-export const ButtonForm = styled.button`
-    font-size: 25px;
-    padding: 10px 15px;
-    background-color: #00ff00;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    width: 320px;
-
-    @media screen and (max-width: 768px) {
-     
-      font-size: 18px;
-      width: 150px;
-    
+export const SubmitBtn = styled.button`
+  margin-top: 40px;
+  padding: 6px;
+  width: 80%;
+  height: 100%;
+  flex-shrink: 0;
+  border-radius: 33.5px;
+  background: #3cb3ab;
+  border: none;
+  &:hover {
+    color: #fff;
+    background-color: #147a73;
+    box-shadow: 1px 2px 6px 0px rgba(33, 83, 60, 0.7);
   }
+  box-shadow: 0 2px 4px rgba(33, 83, 60, 0.5);
 
-
-    &:active {
-        background-color: black;
-    }
-
-
-    `
-
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+    width: 150px;
+  }
+`;

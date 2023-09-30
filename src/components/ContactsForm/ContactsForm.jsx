@@ -10,9 +10,9 @@ import {
   StyledForm,
   Label,
   StyledField,
-  ErrorMsg,
+  StyledError,
   InputContainer,
-  ButtonForm,
+  SubmitBtn,
 } from './ContactsForm.styled';
 import { addContact } from 'redux/operations';
 
@@ -68,19 +68,21 @@ export const ContactsForm = () => {
     >
       <StyledForm>
         <InputContainer>
-          <StyledField type="text" name="name" placeholder=" " />
-          <Label htmlFor="name">Please enter name:</Label>
-
-          <ErrorMsg name="name" component="div" />
+          <Label htmlFor="name">
+            name:
+            <StyledField type="text" name="name" placeholder=" " />
+            <StyledError name="name" component="div" />
+          </Label>
         </InputContainer>
         <InputContainer>
-          <StyledField type="tel" name="number" placeholder=" " />
-          <Label htmlFor="number">Please enter number:</Label>
-
-          <ErrorMsg name="number" component="div" />
+          <Label htmlFor="number">
+            phone number:
+            <StyledField type="tel" name="number" placeholder=" " />
+            <StyledError name="number" component="div" />
+          </Label>
         </InputContainer>
 
-        <ButtonForm type="submit">Add contact</ButtonForm>
+        <SubmitBtn type="submit">Add contact</SubmitBtn>
       </StyledForm>
     </Formik>
   );

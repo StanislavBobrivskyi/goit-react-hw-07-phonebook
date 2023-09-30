@@ -1,9 +1,9 @@
 import {
   CenterContainer,
   FilterTitile,
-  ContFilter,
+  ContactFilter,
   FilterInput,
-  FilterPlaceholder,
+  Lable,
 } from './ContactsFilter.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
@@ -18,17 +18,15 @@ export const ContactsFilter = () => {
   return (
     <CenterContainer>
       <FilterTitile>Contacts</FilterTitile>
-      <ContFilter>
+      <ContactFilter>
         <FilterInput
           placeholder=" "
           type="text"
           name="filter"
           onChange={handeChangeFilter}
         />
-        <FilterPlaceholder htmlFor="filter">
-          Find contact by name
-        </FilterPlaceholder>
-      </ContFilter>
+        <Lable htmlFor="filter">Find contact by name</Lable>
+      </ContactFilter>
     </CenterContainer>
   );
 };
